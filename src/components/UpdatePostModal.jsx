@@ -4,7 +4,7 @@ import { ProfileContext } from "./App"
 import { useDispatch, useSelector } from "react-redux"
 import { updatePost } from "../components/features/posts/postsSlice"
 
-export default function UpdatePostModal({ show, handleClose, postId }) {
+function UpdatePostModal({ show, handleClose, postId }) {
     const { image, name } = useContext(ProfileContext)
     const dispatch = useDispatch()
 
@@ -26,11 +26,12 @@ export default function UpdatePostModal({ show, handleClose, postId }) {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (imageUrl) {
-            dispatch(updatePost({
-                id: postId,
-                image: imageUrl,
-                description
-            }))
+            dispatch(
+                updatePost({
+                    id: postId,
+                    image: imageUrl,
+                    description
+                }))
             setImageUrl("")
             setdescription("")
             handleClose()
@@ -50,7 +51,7 @@ export default function UpdatePostModal({ show, handleClose, postId }) {
     return (
         <Modal show={show} onHide={handleClose} size="lg">
             <Modal.Header>
-                <Modal.Title>Share a Post</Modal.Title>
+                <Modal.Title>Edit Post</Modal.Title>
             </Modal.Header>
             <Form onSubmit={handleSubmit}>
                 <Modal.Body>
@@ -98,3 +99,5 @@ export default function UpdatePostModal({ show, handleClose, postId }) {
         </Modal>
     )
 }
+
+export default UpdatePostModal
