@@ -32,10 +32,14 @@ const postSlice = createSlice({
                 comments: 0,
             }
             state.push(newPost)
+        },
+        updatePost: (state, action) => {
+            const index = state.findIndex((post) => post.id === action.payload.id)
+            state[index] = action.payload
         }
     }
 })
 
-export const { createPost } = postSlice.actions
+export const { createPost, updatePost } = postSlice.actions
 
 export default postSlice.reducer
