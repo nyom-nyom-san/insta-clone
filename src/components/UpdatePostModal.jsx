@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import { Button, Col, Form, Row, Image, Modal } from "react-bootstrap"
-import { ProfileContext } from "./App"
+import { ProfileContext } from "../App"
 import { useDispatch, useSelector } from "react-redux"
 import { updatePost } from "../components/features/posts/postsSlice"
 
